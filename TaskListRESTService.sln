@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListRESTService", "TaskListRESTService\TaskListRESTService.csproj", "{2796FA5A-FE95-4DA1-B857-FF975547E5DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListDao", "TaskListDao\TaskListDao.csproj", "{64794582-714C-41E1-BFCD-58AFC1B5C9EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListDaoMockImpl", "TaskListDaoMockImpl\TaskListDaoMockImpl.csproj", "{D6044305-5489-4004-A3F9-D27DEBC98E83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListRESTService.Tests", "TaskListRESTService.Tests\TaskListRESTService.Tests.csproj", "{FF880417-D198-4C56-A280-042020E13088}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependencies", "Dependencies\Dependencies.csproj", "{62098679-86C7-45B8-BAE6-98C90A4D79D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListDaoHibernateImpl", "TaskListDaoHibernateImpl\TaskListDaoHibernateImpl.csproj", "{04B11CEC-B726-4AD9-9DAD-E0C5E75E60FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListDaoHibernateImpl.Web", "TaskListDaoHibernateImpl.Web\TaskListDaoHibernateImpl.Web.csproj", "{4D10F6DC-CC7B-4E63-A46F-072481B11C18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Default|Any CPU = Default|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04B11CEC-B726-4AD9-9DAD-E0C5E75E60FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B11CEC-B726-4AD9-9DAD-E0C5E75E60FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B11CEC-B726-4AD9-9DAD-E0C5E75E60FA}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{04B11CEC-B726-4AD9-9DAD-E0C5E75E60FA}.Default|Any CPU.Build.0 = Default|Any CPU
+		{04B11CEC-B726-4AD9-9DAD-E0C5E75E60FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B11CEC-B726-4AD9-9DAD-E0C5E75E60FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2796FA5A-FE95-4DA1-B857-FF975547E5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2796FA5A-FE95-4DA1-B857-FF975547E5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2796FA5A-FE95-4DA1-B857-FF975547E5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2796FA5A-FE95-4DA1-B857-FF975547E5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Default|Any CPU.Build.0 = Default|Any CPU
+		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62098679-86C7-45B8-BAE6-98C90A4D79D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62098679-86C7-45B8-BAE6-98C90A4D79D4}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{62098679-86C7-45B8-BAE6-98C90A4D79D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64794582-714C-41E1-BFCD-58AFC1B5C9EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64794582-714C-41E1-BFCD-58AFC1B5C9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64794582-714C-41E1-BFCD-58AFC1B5C9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64794582-714C-41E1-BFCD-58AFC1B5C9EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6044305-5489-4004-A3F9-D27DEBC98E83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6044305-5489-4004-A3F9-D27DEBC98E83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6044305-5489-4004-A3F9-D27DEBC98E83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6044305-5489-4004-A3F9-D27DEBC98E83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF880417-D198-4C56-A280-042020E13088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF880417-D198-4C56-A280-042020E13088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF880417-D198-4C56-A280-042020E13088}.Default|Any CPU.ActiveCfg = Default|Any CPU
+		{FF880417-D198-4C56-A280-042020E13088}.Default|Any CPU.Build.0 = Default|Any CPU
+		{FF880417-D198-4C56-A280-042020E13088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF880417-D198-4C56-A280-042020E13088}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 0.1
+		StartupItem = TaskListRESTService\TaskListRESTService.csproj
+	EndGlobalSection
+EndGlobal

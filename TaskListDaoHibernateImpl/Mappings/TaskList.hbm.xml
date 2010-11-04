@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="TaskListDao" 
+                   namespace="TaskListDao.Model">
+  
+  <class name="TaskList" table="tasklist">
+    <id name="Id"/>
+    <property name="Name" />
+    <bag name="Tasks" cascade="delete-orphan">
+    	<key column="tasklist"/>
+    	<one-to-many class="TaskListDao.Model.Task, TaskListDao" />
+    </bag>
+  </class>
+  
+</hibernate-mapping>
+
