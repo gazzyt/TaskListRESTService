@@ -15,7 +15,8 @@ namespace TaskListRESTService.Utilities
 			XmlWriterSettings xmlSettings = new XmlWriterSettings
 			{
 				CloseOutput = false,
-				OmitXmlDeclaration = true
+				OmitXmlDeclaration = true,
+				Encoding = new UTF8Encoding(false)
 			};
 			
 			XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
