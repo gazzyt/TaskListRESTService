@@ -9,6 +9,7 @@
     <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{603C0E0B-DB56-11DC-BE95-000D561079B0};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AssemblyName>TaskListRESTService</AssemblyName>
+    <RootNamespace>TaskListRESTService</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,6 +93,7 @@
     <Compile Include="Mvc\Binders\BaseBinder.cs" />
     <Compile Include="Controllers\TaskListsController.cs" />
     <Compile Include="Mvc\AcceptVerbsWithOverride.cs" />
+    <Compile Include="Mvc\EmptyResultWithStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -106,7 +108,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v8.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
     <MonoDevelop>
-      <Properties VerifyCodeBehindFields="true" VerifyCodeBehindEvents="true" InternalTargetFrameworkVersion="3.5">
+      <Properties InternalTargetFrameworkVersion="3.5" VerifyCodeBehindFields="true" VerifyCodeBehindEvents="true">
         <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="true" />
       </Properties>
     </MonoDevelop>
