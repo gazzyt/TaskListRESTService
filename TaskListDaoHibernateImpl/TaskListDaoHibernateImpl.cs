@@ -52,6 +52,13 @@ namespace TaskListDaoHibernateImpl
 			session.Delete(taskList);
 			session.Flush();
 		}
+		
+		public void DeleteAllTaskLists()
+		{
+			ISession session = _nhibernateHelper.OpenSession();
+			session.Delete("from TaskList t");
+			session.Flush();
+		}
 
 		public IEnumerable<Task> GetTasksInList(Guid taskListId)
 		{

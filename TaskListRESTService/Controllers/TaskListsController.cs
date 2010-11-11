@@ -41,5 +41,13 @@ namespace TaskListRESTService.Controllers
 			dao.AddTaskList(tl);
 			return new EmptyResult();
 		}
+		
+		[ActionName("TaskLists")]
+		[AcceptVerbs(HttpVerbs.Delete)]
+		public ActionResult DeleteAll()
+		{
+			dao.DeleteAllTaskLists();
+			return new EmptyResult();
+		}
 	}
 }

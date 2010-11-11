@@ -33,6 +33,11 @@ namespace TaskListDaoMockImpl
 		{
 			throw new NotImplementedException();
 		}
+		
+		public void DeleteAllTaskLists()
+		{
+			throw new NotImplementedException();
+		}
 
 		public IEnumerable<Task> GetTasksInList(Guid taskListId)
 		{
