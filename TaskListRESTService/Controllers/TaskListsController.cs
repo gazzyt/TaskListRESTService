@@ -39,7 +39,7 @@ namespace TaskListRESTService.Controllers
 		public ActionResult Create(TaskList tl)
 		{
 			dao.AddTaskList(tl);
-			return new EmptyResultWithStatus(201);
+			return new EmptyResultWithStatus(201, new Uri(tl.Id.ToString("D"), UriKind.Relative));
 		}
 		
 		[ActionName("TaskLists")]
