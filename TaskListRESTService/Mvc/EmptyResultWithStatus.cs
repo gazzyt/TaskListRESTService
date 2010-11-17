@@ -3,6 +3,8 @@ using System.Web.Mvc;
 
 using log4net;
 
+using TaskListRESTService.Utilities;
+
 namespace TaskListRESTService
 {
 	public class EmptyResultWithStatus : EmptyResult
@@ -27,17 +29,7 @@ namespace TaskListRESTService
 				
 				if (!locationUri.IsAbsoluteUri)
 				{
-					UriBuilder builder = new UriBuilder(context.HttpContext.Request.Url);
-					if (!builder.Path.EndsWith("/"))
-					{
-						builder.Path = builder.Path + "/";
-					}
-					builder.Path = builder.Path + locationUri.ToString();
-					
-					log.DebugFormat("Request Url is: {0}", context.HttpContext.Request.Url);
-					log.DebugFormat("loc uri is: {0}", locationUri);
-
-					locationUri = builder.Uri;
+					locationUri = context.HttpContext.Request.Url.Append(locationUri);
 				}
 				
 				log.DebugFormat("Setting HTTP Location header to: {0}", locationUri);
