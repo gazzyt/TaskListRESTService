@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListRESTService", "TaskListRESTService\TaskListRESTService.csproj", "{2796FA5A-FE95-4DA1-B857-FF975547E5DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListDao", "TaskListDao\TaskListDao.csproj", "{64794582-714C-41E1-BFCD-58AFC1B5C9EA}"
@@ -57,7 +57,6 @@ Global
 		{FF880417-D198-4C56-A280-042020E13088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		version = 0.1
 		StartupItem = TaskListRESTService\TaskListRESTService.csproj
 	EndGlobalSection
 EndGlobal
