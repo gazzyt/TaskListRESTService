@@ -10,3 +10,4 @@ _ReSharper.*
 *.swp
 *.pidb
 *.userprefs
+TestResult.xml
