@@ -34,6 +34,13 @@ namespace TaskListDaoHibernateImpl
 			session.Flush();
 		}
 		
+		public TaskList GetTaskList(Guid id)
+		{
+			ISession session = _nhibernateHelper.OpenSession();
+
+			return session.Get<TaskList>(id);
+		}
+		
 		public void UpdateTaskList(TaskList taskList)
 		{
 			ISession session = _nhibernateHelper.OpenSession();

@@ -32,7 +32,10 @@ namespace TaskListRESTService
 			}
 		}
 		
-	
+		public EmptyResultWithStatus (int statusCode )
+		{
+			_statusCode = statusCode;
+		}	
 		
 		public EmptyResultWithStatus (int statusCode, Uri location )
 		{

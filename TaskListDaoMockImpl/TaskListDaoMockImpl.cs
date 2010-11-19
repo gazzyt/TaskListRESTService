@@ -24,6 +24,11 @@ namespace TaskListDaoMockImpl
 			_taskLists.Add(newList);
 		}
 		
+		public TaskList GetTaskList(Guid id)
+		{
+			throw new NotImplementedException();
+		}
+		
 		public void UpdateTaskList(TaskList taskList)
 		{
 			throw new NotImplementedException();

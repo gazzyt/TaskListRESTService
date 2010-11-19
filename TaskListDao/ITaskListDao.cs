@@ -12,6 +12,7 @@ namespace TaskListDao
 	{
 		IEnumerable<TaskList> GetTaskLists();
 		void AddTaskList(TaskList newList);
+		TaskList GetTaskList(Guid id);
 		void UpdateTaskList(TaskList taskList);
 		void DeleteTaskList(Guid taskListId);
 		
