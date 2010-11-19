@@ -39,6 +39,7 @@
     <None Include="NHibernate.ByteCode.LinFu.dll" />
     <None Include="mysql.data.dll" />
     <None Include="Iesi.Collections.dll" />
+    <None Include="Rhino.Mocks.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

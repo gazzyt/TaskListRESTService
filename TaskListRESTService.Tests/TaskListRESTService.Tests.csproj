@@ -35,17 +35,30 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\mono\NUnit-2.5.8.10295\bin\net-2.0\framework\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="XMLTests.cs" />
     <Compile Include="UriHelperTests.cs" />
+    <Compile Include="Controllers\TaskListsControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskListRESTService\TaskListRESTService.csproj">
       <Project>{2796FA5A-FE95-4DA1-B857-FF975547E5DC}</Project>
       <Name>TaskListRESTService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TaskListDao\TaskListDao.csproj">
+      <Project>{64794582-714C-41E1-BFCD-58AFC1B5C9EA}</Project>
+      <Name>TaskListDao</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
 </Project>

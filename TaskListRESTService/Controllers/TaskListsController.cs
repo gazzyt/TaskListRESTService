@@ -26,11 +26,11 @@ namespace TaskListRESTService.Controllers
 		
 		[ActionName("TaskLists")]
 		[AcceptVerbs(HttpVerbs.Get)]
-		public ActionResult List()
+		public ActionResult List(string format)
 		{
 			IEnumerable<TaskList> taskLists = dao.GetTaskLists();
 			
-			return SelectActionResult("List", taskLists);
+			return SelectActionResult("List", taskLists, format);
 		}
 		
 			

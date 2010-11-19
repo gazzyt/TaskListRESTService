@@ -14,10 +14,10 @@ namespace TaskListRESTService
 	
 	public class BaseController : Controller
 	{
-		protected internal virtual ActionResult SelectActionResult(string name, object model)
+		protected internal virtual ActionResult SelectActionResult(string name, object model, string format)
 		{
 			ActionResult result = null;
-			string requestedFormat = HttpContext.Request.QueryString["format"] ?? String.Empty;
+			string requestedFormat = format ?? String.Empty;
 			
 			switch(requestedFormat)
 			{
@@ -35,6 +35,11 @@ namespace TaskListRESTService
 			}
 			
 			return result;
+		}
+		
+		protected internal virtual ActionResult SelectActionResult(string name, object model)
+		{
+			return SelectActionResult(name, model, HttpContext.Request.QueryString["format"]);
 		}
 		
 		protected internal virtual ActionResult Xml(object model)
