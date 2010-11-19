@@ -27,6 +27,7 @@ namespace TaskListRESTService.Tests
 			return new TaskListsController(stubDao);
 		}
 
+		#region List Tests
 		
 		[Test()]
 		public void TestList_Html_Normal ()
@@ -78,6 +79,33 @@ namespace TaskListRESTService.Tests
 			JsonResult jsonResult = result as JsonResult;
 			Assert.AreSame(taskLists, jsonResult.Data);
 		}
+		#endregion
+		
+		#region Create Tests
+		
+		[Test]
+		public void TestCreate_Normal ()
+		{
+			//Arrange
+			var stubDao = MockRepository.GenerateStub<ITaskListDao>();
+			
+			stubDao.Stub(x => x.AddTaskList(Arg<TaskList>.Is.Anything));
+			TaskListsController controller = new TaskListsController(stubDao);
+			TaskList tl = new TaskList {Name = "tl1"};
+			
+			// Act
+			ActionResult result = controller.Create(tl);
+			
+			// Assert
+			Assert.NotNull(result);
+			Assert.IsInstanceOf<EmptyResultWithStatus>(result);
+			
+			EmptyResultWithStatus viewResult = result as EmptyResultWithStatus;
+			Assert.AreEqual(201, viewResult.StatusCode);
+			Assert.IsFalse(viewResult.Location.ToString().Contains(new Guid().ToString("D")), "Wrong Location url. Actual was {0}", viewResult.Location.ToString());
+		}
+		
+		#endregion
 	}
 }
 

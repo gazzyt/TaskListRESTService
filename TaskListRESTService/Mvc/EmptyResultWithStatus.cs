@@ -13,6 +13,27 @@ namespace TaskListRESTService
 		private int _statusCode;
 		private Uri _location;
 		
+		public Uri Location {
+			get {
+				return _location;
+			}
+			set {
+				_location = value;
+			}
+		}
+
+		public int StatusCode
+		{
+			get {
+				return _statusCode;
+			}
+			set {
+				_statusCode = value;
+			}
+		}
+		
+	
+		
 		public EmptyResultWithStatus (int statusCode, Uri location )
 		{
 			_statusCode = statusCode;
