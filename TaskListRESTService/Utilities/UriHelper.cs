@@ -12,6 +12,8 @@ namespace TaskListRESTService
 		{
 			UriBuilder builder = new UriBuilder(root);
 			
+			builder.Query = null;
+			
 			if (!builder.Path.EndsWith("/"))
 			{
 				builder.Path = builder.Path + "/";
