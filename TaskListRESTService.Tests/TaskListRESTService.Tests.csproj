@@ -46,6 +46,7 @@
     <Compile Include="XMLTests.cs" />
     <Compile Include="UriHelperTests.cs" />
     <Compile Include="Controllers\TaskListsControllerTests.cs" />
+    <Compile Include="Controllers\BaseControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskListRESTService\TaskListRESTService.csproj">

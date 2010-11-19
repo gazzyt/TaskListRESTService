@@ -14,12 +14,12 @@ namespace TaskListRESTService
 	
 	public class BaseController : Controller
 	{
-		protected internal virtual ActionResult SelectActionResult(string name, object model, string format)
+		public virtual ActionResult SelectActionResult(string name, object model, string format)
 		{
 			ActionResult result = null;
 			string requestedFormat = format ?? String.Empty;
 			
-			switch(requestedFormat)
+			switch(requestedFormat.ToLower())
 			{
 			case "json":
 				result = Json(model);
