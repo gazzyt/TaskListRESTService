@@ -15,6 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListDaoHibernateImpl", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListDaoHibernateImpl.Web", "TaskListDaoHibernateImpl.Web\TaskListDaoHibernateImpl.Web.csproj", "{4D10F6DC-CC7B-4E63-A46F-072481B11C18}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{649A7029-2E81-49B2-AECA-2489C50D8BA7}"
+	ProjectSection(SolutionItems) = preProject
+		runtests.sh = runtests.sh
+		.gitignore = .gitignore
+		TaskListRESTService.nunit = TaskListRESTService.nunit
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +62,8 @@ Global
 		{FF880417-D198-4C56-A280-042020E13088}.Default|Any CPU.Build.0 = Default|Any CPU
 		{FF880417-D198-4C56-A280-042020E13088}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF880417-D198-4C56-A280-042020E13088}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = TaskListRESTService\TaskListRESTService.csproj
