@@ -106,6 +106,31 @@ namespace TaskListRESTService.Tests
 		}
 		
 		#endregion
+		
+		#region Delete Tests
+		
+		[Test]
+		public void TestDelete_Normal ()
+		{
+			//Arrange
+			var stubDao = MockRepository.GenerateStub<ITaskListDao>();
+			
+			TaskListsController controller = new TaskListsController(stubDao);
+			
+			// Act
+			ActionResult result = controller.DeleteAll();
+			
+			// Assert
+			stubDao.AssertWasCalled(x => x.DeleteAllTaskLists());
+			Assert.NotNull(result);
+			Assert.IsInstanceOf<EmptyResultWithStatus>(result);
+			
+			EmptyResultWithStatus viewResult = result as EmptyResultWithStatus;
+			Assert.AreEqual(204, viewResult.StatusCode);
+		}
+		
+		#endregion
+
 	}
 }
 

@@ -48,7 +48,7 @@ namespace TaskListRESTService.Controllers
 		public ActionResult DeleteAll()
 		{
 			dao.DeleteAllTaskLists();
-			return new EmptyResult();
+			return new EmptyResultWithStatus(204);
 		}
 	}
 }
