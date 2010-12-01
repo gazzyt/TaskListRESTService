@@ -40,6 +40,7 @@
       <HintPath>..\Dependencies\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="UriHelperTests.cs" />
     <Compile Include="Controllers\TaskListsControllerTests.cs" />
     <Compile Include="Controllers\BaseControllerTests.cs" />
+    <Compile Include="Controllers\TaskListControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskListRESTService\TaskListRESTService.csproj">

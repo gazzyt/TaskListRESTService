@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 using NUnit.Framework;
@@ -7,6 +9,7 @@ using Rhino.Mocks;
 using TaskListDao;
 using TaskListDao.Model;
 using TaskListRESTService.Controllers;
+using TaskListRESTService.Models;
 
 namespace TaskListRESTService.Tests
 {
@@ -27,6 +30,14 @@ namespace TaskListRESTService.Tests
 			return new TaskListsController(stubDao);
 		}
 
+		private void AssertModel(object model)
+		{
+			Assert.IsInstanceOf<IEnumerable<TaskListViewModel>>(model);
+			IEnumerable<TaskListViewModel> viewModels = model as IEnumerable<TaskListViewModel>;
+			
+			Assert.True(taskLists.All(x => viewModels.Any(vm => vm.Name == x.Name && vm.Id == x.Id)));
+		}
+
 		#region List Tests
 		
 		[Test()]
@@ -43,7 +54,7 @@ namespace TaskListRESTService.Tests
 			Assert.IsInstanceOf<ViewResult>(result);
 			
 			ViewResult viewResult = result as ViewResult;
-			Assert.AreSame(taskLists, viewResult.ViewData.Model);
+			AssertModel(viewResult.ViewData.Model);
 		}
 		
 		[TestCase("xml")]
@@ -60,7 +71,7 @@ namespace TaskListRESTService.Tests
 			Assert.IsInstanceOf<XmlResult>(result);
 			
 			XmlResult xmlResult = result as XmlResult;
-			Assert.AreSame(taskLists, xmlResult.Data);
+			AssertModel(xmlResult.Data);
 		}
 		
 		[TestCase("json")]
@@ -77,7 +88,7 @@ namespace TaskListRESTService.Tests
 			Assert.IsInstanceOf<JsonResult>(result);
 			
 			JsonResult jsonResult = result as JsonResult;
-			Assert.AreSame(taskLists, jsonResult.Data);
+			AssertModel(jsonResult.Data);
 		}
 		#endregion
 		

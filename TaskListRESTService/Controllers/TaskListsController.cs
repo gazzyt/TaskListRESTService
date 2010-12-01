@@ -1,10 +1,12 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 using TaskListDao;
 using TaskListDao.Model;
+using TaskListRESTService.Models;
 
 namespace TaskListRESTService.Controllers
 {
@@ -29,8 +31,14 @@ namespace TaskListRESTService.Controllers
 		public ActionResult List(string format)
 		{
 			IEnumerable<TaskList> taskLists = dao.GetTaskLists();
+			List<TaskListViewModel> viewModels = new List<TaskListViewModel>();
+			foreach (TaskList tl in taskLists)
+			{
+				viewModels.Add(new TaskListViewModel(tl));
+			}
 			
-			return SelectActionResult("List", taskLists, format);
+			
+			return SelectActionResult("List", viewModels, format);
 		}
 		
 			

@@ -94,6 +94,7 @@
     <Compile Include="Mvc\AcceptVerbsWithOverride.cs" />
     <Compile Include="Mvc\EmptyResultWithStatus.cs" />
     <Compile Include="Utilities\UriHelper.cs" />
+    <Compile Include="Models\TaskListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
