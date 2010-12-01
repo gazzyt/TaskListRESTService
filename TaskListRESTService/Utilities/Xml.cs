@@ -28,8 +28,8 @@ namespace TaskListRESTService.Utilities
 		
 		public static T XmlToObject<T>(Stream source)
 		{
-			XmlSerializer ser = new XmlSerializer(typeof(T));
-			object o = ser.Deserialize(source);
+			DataContractSerializer ser = new DataContractSerializer(typeof(T));
+			object o = ser.ReadObject(source);
 			
 			return (T)o;
 		}

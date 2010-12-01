@@ -102,7 +102,7 @@ namespace TaskListRESTService.Tests
 			
 			stubDao.Stub(x => x.AddTaskList(Arg<TaskList>.Is.Anything));
 			TaskListsController controller = new TaskListsController(stubDao);
-			TaskList tl = new TaskList {Name = "tl1"};
+			TaskListViewModel tl = new TaskListViewModel {Name = "tl1"};
 			
 			// Act
 			ActionResult result = controller.Create(tl);

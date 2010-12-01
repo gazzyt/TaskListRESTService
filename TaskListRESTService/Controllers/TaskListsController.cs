@@ -44,10 +44,10 @@ namespace TaskListRESTService.Controllers
 			
 		[ActionName("TaskLists")]
 		[AcceptVerbs(HttpVerbs.Post)]
-		public ActionResult Create(TaskList tl)
+		public ActionResult Create(TaskListViewModel tl)
 		{
 			tl.Id = Guid.NewGuid();
-			dao.AddTaskList(tl);
+			dao.AddTaskList(tl.TaskList);
 			return new EmptyResultWithStatus(201, new Uri(tl.Id.ToString("D"), UriKind.Relative));
 		}
 		

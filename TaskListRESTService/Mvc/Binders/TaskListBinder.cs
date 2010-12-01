@@ -3,7 +3,7 @@ using System;
 using System.Web;
 using System.Web.Mvc;
 
-using TaskListDao.Model;
+using TaskListRESTService.Models;
 
 namespace TaskListRESTService.Mvc.Binders
 {
@@ -15,7 +15,7 @@ namespace TaskListRESTService.Mvc.Binders
 		#region IModelBinder implementation
 		public override object BindModel (ControllerContext controllerContext, ModelBindingContext bindingContext)
 		{
-			object retval = DeserializeRequestBody<TaskList>(controllerContext.HttpContext.Request);
+			object retval = DeserializeRequestBody<TaskListViewModel>(controllerContext.HttpContext.Request);
 			
 			return retval;
 		}

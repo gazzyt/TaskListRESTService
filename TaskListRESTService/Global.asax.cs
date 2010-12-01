@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 
 using TaskListDao.Model;
+using TaskListRESTService.Models;
 using TaskListRESTService.Mvc;
 using TaskListRESTService.Mvc.Binders;
 
@@ -48,7 +49,7 @@ namespace TaskListRESTService
 		
 		public static void RegisterBinders()
 		{
-			ModelBinders.Binders[typeof(TaskList)] = new TaskListBinder();
+			ModelBinders.Binders[typeof(TaskListViewModel)] = new TaskListBinder();
 			ModelBinders.Binders[typeof(Task)] = new TaskBinder();
 		}
 
