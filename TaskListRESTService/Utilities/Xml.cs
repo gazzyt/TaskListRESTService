@@ -1,6 +1,7 @@
 
 using System;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -9,24 +10,19 @@ namespace TaskListRESTService.Utilities
 {
 	public static class Xml
 	{
-		
 		public static void ObjectToXml(object obj, Stream destination)
 		{
+			DataContractSerializer ser = new DataContractSerializer(obj.GetType());
 			XmlWriterSettings xmlSettings = new XmlWriterSettings
 			{
 				CloseOutput = false,
 				OmitXmlDeclaration = true,
 				Encoding = new UTF8Encoding(false)
 			};
-			
-			XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
-			namespaces.Add(String.Empty, String.Empty);
-			
+
 			using (XmlWriter xw = XmlWriter.Create(destination, xmlSettings))
 			{
-				XmlSerializer ser = new XmlSerializer(obj.GetType());
-				
-				ser.Serialize(xw, obj,namespaces);
+				ser.WriteObject(xw, obj);
 			}
 		}
 		

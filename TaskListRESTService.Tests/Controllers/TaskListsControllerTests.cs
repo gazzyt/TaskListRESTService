@@ -32,8 +32,8 @@ namespace TaskListRESTService.Tests
 
 		private void AssertModel(object model)
 		{
-			Assert.IsInstanceOf<IEnumerable<TaskListViewModel>>(model);
-			IEnumerable<TaskListViewModel> viewModels = model as IEnumerable<TaskListViewModel>;
+			Assert.IsInstanceOf<TaskListsViewModel>(model);
+			TaskListsViewModel viewModels = model as TaskListsViewModel;
 			
 			Assert.True(taskLists.All(x => viewModels.Any(vm => vm.Name == x.Name && vm.Id == x.Id)));
 		}

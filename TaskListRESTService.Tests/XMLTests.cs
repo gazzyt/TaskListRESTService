@@ -1,6 +1,7 @@
 
 using System;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Text;
 
 using NUnit.Framework;
@@ -9,10 +10,11 @@ using TaskListRESTService.Utilities;
 
 namespace TaskListRESTService.Tests
 {
+	[DataContract(Namespace="")]
 	public class TestEntity
 	{
-		public string str1 {get;set;}
-		public string str2 {get;set;}
+		[DataMember] public string str1 {get;set;}
+		[DataMember] public string str2 {get;set;}
 	}
 	
 	[TestFixture()]
@@ -30,7 +32,7 @@ namespace TaskListRESTService.Tests
 				ms.Position = 0;
 				StreamReader sr = new StreamReader(ms);
 				string result = sr.ReadToEnd();
-				Assert.AreEqual("<TestEntity><str1>s1</str1><str2>s2</str2></TestEntity>", result);
+				Assert.AreEqual("<TestEntity xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\"><str1>s1</str1><str2>s2</str2></TestEntity>", result);
 			}
 		}
 		

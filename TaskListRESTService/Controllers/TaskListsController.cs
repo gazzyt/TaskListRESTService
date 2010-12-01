@@ -31,7 +31,7 @@ namespace TaskListRESTService.Controllers
 		public ActionResult List(string format)
 		{
 			IEnumerable<TaskList> taskLists = dao.GetTaskLists();
-			List<TaskListViewModel> viewModels = new List<TaskListViewModel>();
+			TaskListsViewModel viewModels = new TaskListsViewModel();
 			foreach (TaskList tl in taskLists)
 			{
 				viewModels.Add(new TaskListViewModel(tl));

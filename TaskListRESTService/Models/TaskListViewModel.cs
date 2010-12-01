@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 using TaskListDao.Model;
 
 namespace TaskListRESTService.Models
 {
+	[DataContract(Name="TaskList", Namespace="")]
 	public class TaskListViewModel
 	{
 		private TaskList _taskList;
@@ -26,19 +28,29 @@ namespace TaskListRESTService.Models
 			}
 		}
 		
+		[DataMember]
 		public Guid Id
 		{
 			get
 			{
 				return _taskList.Id;
 			}
+			set
+			{
+				_taskList.Id = value;
+			}
 		}
 		
+		[DataMember]
 		public string Name
 		{
 			get
 			{
 				return _taskList.Name;
+			}
+			set
+			{
+				_taskList.Name = value;
 			}
 		}
 		
