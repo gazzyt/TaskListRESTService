@@ -1,5 +1,5 @@
 ﻿<NUnitProject>
-  <Settings activeconfig="Debug" processModel="Separate" />
+  <Settings activeconfig="Debug" />
   <Config name="Debug" binpathtype="Auto" runtimeFramework="mono-4.0">
     <assembly path="TaskListRESTService.Tests/bin/Debug/TaskListRESTService.Tests.dll" />
   </Config>
