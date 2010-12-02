@@ -51,6 +51,7 @@
     <Compile Include="Controllers\BaseControllerTests.cs" />
     <Compile Include="Controllers\TaskListControllerTests.cs" />
     <Compile Include="Model\TaskListViewModelTests.cs" />
+    <Compile Include="Utilities\JsonTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskListRESTService\TaskListRESTService.csproj">
@@ -66,6 +67,7 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Model\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.config">
