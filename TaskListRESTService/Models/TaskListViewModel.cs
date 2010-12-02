@@ -40,15 +40,18 @@ namespace TaskListRESTService.Models
 			}
 		}
 		
+		[DataMember]
 		public String Self
 		{
 			get
 			{
-				return "/lala/" + _taskList.Id.ToString("D");
+				return string.Format(Configuration.TaskListUrlPattern, _taskList.Id.ToString("D"));
+			}
+			set
+			{
 			}
 		}
 		
-		[DataMember]
 		public Guid Id
 		{
 			get
