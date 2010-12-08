@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace TaskListRESTService.Utilities
 {
@@ -10,9 +11,12 @@ namespace TaskListRESTService.Utilities
 	{
 		public static void ObjectToJson(object obj, Stream destination)
 		{
-			DataContractJsonSerializer ser = new DataContractJsonSerializer(obj.GetType());
-
-			ser.WriteObject(destination, obj);
+			JsonSerializer ser = new JsonSerializer();
+			
+			StreamWriter sw = new StreamWriter(destination);
+			JsonWriter jw = new JsonTextWriter(sw);
+			ser.Serialize(jw, obj);
+			jw.Flush();
 		}
 		
 		public static T JsonToObject<T>(Stream source)
