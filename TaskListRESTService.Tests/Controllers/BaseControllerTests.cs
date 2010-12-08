@@ -3,6 +3,9 @@ using System.Web.Mvc;
 using NUnit.Framework;
 
 using TaskListRESTService.Controllers;
+using TaskListRESTService.Mvc;
+
+using JsonResult = TaskListRESTService.Mvc.JsonResult;
 
 namespace TaskListRESTService.Tests
 {

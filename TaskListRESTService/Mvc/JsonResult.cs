@@ -10,10 +10,10 @@ namespace TaskListRESTService.Mvc
 {
 	
 	
-	public class XmlResult : ActionResult
+	public class JsonResult : ActionResult
 	{
 
-		public XmlResult()
+		public JsonResult()
 		{
 		}
 		
@@ -25,11 +25,11 @@ namespace TaskListRESTService.Mvc
 			{
 				HttpResponseBase resp = context.RequestContext.HttpContext.Response;
 				
-				resp.ContentType = "text/xml";
+				resp.ContentType = "application/json";
 				
 				using (Stream respStream = resp.OutputStream)
 				{
-					Xml.ObjectToXml(Data, respStream);
+					Json.ObjectToJson(Data, respStream);
 				}
 			}
 		}		

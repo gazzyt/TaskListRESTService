@@ -9,7 +9,10 @@ using Rhino.Mocks;
 using TaskListDao;
 using TaskListDao.Model;
 using TaskListRESTService.Controllers;
+using TaskListRESTService.Mvc;
 using TaskListRESTService.Models;
+
+using JsonResult = TaskListRESTService.Mvc.JsonResult;
 
 namespace TaskListRESTService.Tests
 {

@@ -6,7 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 
+using TaskListRESTService.Mvc;
 using TaskListRESTService.Utilities;
+
+using JsonResult = TaskListRESTService.Mvc.JsonResult;
 
 namespace TaskListRESTService
 {
@@ -22,7 +25,7 @@ namespace TaskListRESTService
 			switch(requestedFormat.ToLower())
 			{
 			case "json":
-				result = Json(model);
+				result = DoJson(model);
 				break;
 				
 			case "xml":
@@ -45,6 +48,11 @@ namespace TaskListRESTService
 		protected internal virtual ActionResult Xml(object model)
 		{
 			return new XmlResult{ Data = model };
+		}
+		
+		protected internal virtual ActionResult DoJson(object model)
+		{
+			return new JsonResult{ Data = model };
 		}
 	}
 }
