@@ -21,10 +21,12 @@ namespace TaskListRESTService.Utilities
 		
 		public static T JsonToObject<T>(Stream source)
 		{
-			DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
-			object o = ser.ReadObject(source);
+			JsonSerializer ser = new JsonSerializer();
+			StreamReader sr = new StreamReader(source);
+			JsonReader jr = new JsonTextReader(sr);
+			T o = ser.Deserialize<T>(jr);
 			
-			return (T)o;
+			return o;
 		}
 	}
 }
