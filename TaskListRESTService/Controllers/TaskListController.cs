@@ -10,6 +10,7 @@ using log4net;
 
 using TaskListDao;
 using TaskListDao.Model;
+using TaskListRESTService.Models;
 using TaskListRESTService.Mvc;
 
 namespace TaskListRESTService.Controllers
@@ -33,7 +34,7 @@ namespace TaskListRESTService.Controllers
 		
 		[ActionName("TaskList")]
 		[AcceptVerbs(HttpVerbs.Get)]
-		public ActionResult List(Guid taskListId)
+		public ActionResult List(Guid taskListId, string format)
 		{
 			TaskList taskList = dao.GetTaskList(taskListId);
 			if (taskList == null)
@@ -42,7 +43,9 @@ namespace TaskListRESTService.Controllers
 				return new EmptyResultWithStatus(404);
 			}
 			
-			return SelectActionResult("ListTasks", taskList.Tasks);
+			TaskListViewModel viewModel = new TaskListViewModel(taskList);
+			
+			return SelectActionResult("ListTasks", viewModel, format);
 		}
 		
 			
