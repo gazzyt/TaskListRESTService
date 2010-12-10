@@ -51,7 +51,19 @@ namespace TaskListRESTService.Models
 			{
 			}
 		}
-		
+
+		[DataMember]
+		public String TasksLink
+		{
+			get
+			{
+				return string.Format(Configuration.TaskListTasksUrlPattern, _taskList.Id.ToString("D"));
+			}
+			set
+			{
+			}
+		}
+
 		public Guid Id
 		{
 			get
