@@ -90,6 +90,24 @@ namespace TaskListRESTService.Tests
 			JsonResult jsonResult = result as JsonResult;
 			AssertModel(jsonResult.Data, taskList);
 		}
+		
+		[Test]
+		public void TestList_NotFound()
+		{
+			//Arrange
+			var stubDao = MockRepository.GenerateStub<ITaskListDao>();
+			stubDao.Stub(x => x.GetTaskList(Arg<Guid>.Is.Anything)).Return(null);
+			TaskListController controller = new TaskListController(stubDao);
+			
+			//Act
+			ActionResult result = controller.List(new Guid(), "");
+			
+			//Assert
+			Assert.IsInstanceOf<EmptyResultWithStatus>(result);
+			EmptyResultWithStatus emptyResult = result as EmptyResultWithStatus;
+			Assert.AreEqual(404, emptyResult.StatusCode);
+		}
+		
 		#endregion
 		
 	}
