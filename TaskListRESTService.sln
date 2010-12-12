@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		TaskListRESTService.nunit = TaskListRESTService.nunit
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskListDao.Tests", "TaskListDao.Tests\TaskListDao.Tests.csproj", "{5419C4D3-ADBC-4C1F-AF58-30878D45E846}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,12 @@ Global
 		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Default|Any CPU.Build.0 = Default|Any CPU
 		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D10F6DC-CC7B-4E63-A46F-072481B11C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5419C4D3-ADBC-4C1F-AF58-30878D45E846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5419C4D3-ADBC-4C1F-AF58-30878D45E846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5419C4D3-ADBC-4C1F-AF58-30878D45E846}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{5419C4D3-ADBC-4C1F-AF58-30878D45E846}.Default|Any CPU.Build.0 = Debug|Any CPU
+		{5419C4D3-ADBC-4C1F-AF58-30878D45E846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5419C4D3-ADBC-4C1F-AF58-30878D45E846}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62098679-86C7-45B8-BAE6-98C90A4D79D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62098679-86C7-45B8-BAE6-98C90A4D79D4}.Default|Any CPU.ActiveCfg = Default|Any CPU
 		{62098679-86C7-45B8-BAE6-98C90A4D79D4}.Release|Any CPU.ActiveCfg = Release|Any CPU

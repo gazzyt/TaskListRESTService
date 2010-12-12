@@ -36,5 +36,30 @@ namespace TaskListDao.Model
 		{
 			get; set;
 		}
+		
+		public virtual void Merge(Task taskToMerge)
+		{
+			if (taskToMerge.Name != default(string))
+			{
+				Name = taskToMerge.Name;
+			}
+			
+			if (taskToMerge.Description != default(string))
+			{
+				Description = taskToMerge.Description;
+			}
+			
+			if (taskToMerge.Due != default(DateTime))
+			{
+				Due = taskToMerge.Due;
+			}
+			
+			Complete = taskToMerge.Complete;
+			
+			if (taskToMerge.TaskListId != default(Guid))
+			{
+				TaskListId = taskToMerge.TaskListId;
+			}
+		}
 	}
 }
