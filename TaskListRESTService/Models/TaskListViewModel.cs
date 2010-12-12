@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 using log4net;
+using Newtonsoft.Json;
 
 using TaskListDao.Model;
 
@@ -32,6 +33,7 @@ namespace TaskListRESTService.Models
 			_taskList = new TaskList();
 		}
 		
+		[JsonIgnore]
 		public TaskList TaskList
 		{
 			get
@@ -64,7 +66,7 @@ namespace TaskListRESTService.Models
 			}
 		}
 		
-		[IgnoreDataMember]
+		[JsonIgnore]
 		public Guid Id
 		{
 			get
@@ -92,6 +94,7 @@ namespace TaskListRESTService.Models
 			}
 		}
 		
+		[JsonIgnore]
 		public ICollection<Task> Tasks
 		{
 			get
