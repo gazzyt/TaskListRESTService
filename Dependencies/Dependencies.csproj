@@ -41,6 +41,7 @@
     <None Include="Iesi.Collections.dll" />
     <None Include="Rhino.Mocks.dll" />
     <None Include="Newtonsoft.Json.dll" />
+    <None Include="nunit.framework.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
