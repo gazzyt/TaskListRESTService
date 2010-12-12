@@ -20,6 +20,14 @@ namespace TaskListRESTService
 				return ConfigurationManager.AppSettings["TaskListTasksUrlPattern"];
 			}
 		}
+		
+		public static string TaskUrlPattern
+		{
+			get
+			{
+				return ConfigurationManager.AppSettings["TaskUrlPattern"];
+			}
+		}
 	}
 }
 

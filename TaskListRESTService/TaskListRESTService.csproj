@@ -105,6 +105,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Utilities\Json.cs" />
     <Compile Include="Mvc\JsonResult.cs" />
+    <Compile Include="Models\TaskViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
