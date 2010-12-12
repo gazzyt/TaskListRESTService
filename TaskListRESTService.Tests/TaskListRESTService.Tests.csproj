@@ -42,16 +42,21 @@
     <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="XMLTests.cs" />
     <Compile Include="UriHelperTests.cs" />
     <Compile Include="Controllers\TaskListsControllerTests.cs" />
     <Compile Include="Controllers\BaseControllerTests.cs" />
     <Compile Include="Controllers\TaskListControllerTests.cs" />
     <Compile Include="Model\TaskListViewModelTests.cs" />
     <Compile Include="Utilities\JsonTests.cs" />
+    <Compile Include="Utilities\SerializationClass.cs" />
+    <Compile Include="Utilities\XmlTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskListRESTService\TaskListRESTService.csproj">

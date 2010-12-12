@@ -63,7 +63,8 @@ namespace TaskListRESTService.Models
 			{
 			}
 		}
-
+		
+		[IgnoreDataMember]
 		public Guid Id
 		{
 			get

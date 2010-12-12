@@ -2,19 +2,14 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
+
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 using TaskListRESTService.Utilities;
 
 namespace TaskListRESTService.Tests.Utilities
 {
-	[DataContract(Namespace="")]
-	public class TestEntity
-	{
-		[DataMember] public string str1 {get;set;}
-		[DataMember] public string str2 {get;set;}
-	}
-	
 	[TestFixture()]
 	public class JsonTests
 	{
@@ -22,7 +17,7 @@ namespace TaskListRESTService.Tests.Utilities
 		[Test()]
 		public void TestSerialize()
 		{
-			TestEntity entity = new TestEntity{str1 = "s1", str2 = "s2"};
+			SerializationClass entity = new SerializationClass{str1 = "s1", str2 = "s2", str3 = "s3"};
 			
 			using (MemoryStream ms = new MemoryStream())
 			{
@@ -38,7 +33,7 @@ namespace TaskListRESTService.Tests.Utilities
 		public void TestDeserialize()
 		{
 			MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes("{\"str1\":\"s1\",\"str2\":\"s2\"}"));
-			TestEntity result = Json.JsonToObject<TestEntity>(ms);
+			SerializationClass result = Json.JsonToObject<SerializationClass>(ms);
 			
 			Assert.AreEqual("s1", result.str1);
 			Assert.AreEqual("s2", result.str2);
