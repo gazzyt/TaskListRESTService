@@ -58,6 +58,7 @@
     <Compile Include="Utilities\SerializationClass.cs" />
     <Compile Include="Utilities\XmlTests.cs" />
     <Compile Include="Model\TaskViewModelTests.cs" />
+    <Compile Include="Controllers\TaskControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaskListRESTService\TaskListRESTService.csproj">

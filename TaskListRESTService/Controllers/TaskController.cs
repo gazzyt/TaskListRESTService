@@ -8,6 +8,7 @@ using System.Web.Mvc.Ajax;
 
 using TaskListDao;
 using TaskListDao.Model;
+using TaskListRESTService.Models;
 using TaskListRESTService.Mvc;
 
 namespace TaskListRESTService.Controllers
@@ -30,18 +31,36 @@ namespace TaskListRESTService.Controllers
 		
 		[ActionName("Task")]
 		[AcceptVerbs(HttpVerbs.Get)]
-		public ActionResult GetTask(Guid taskId)
+		public ActionResult GetTask(Guid taskId, string format)
 		{
-			return SelectActionResult("Task", dao.GetTask(taskId));
+			Task task = dao.GetTask(taskId);
+			if (task == null)
+			{
+				return new EmptyResultWithStatus(404);
+			}
+			
+			TaskViewModel tvm = new TaskViewModel(task);
+			
+			return SelectActionResult("Task", tvm, format);
 		}
+		
+		[ActionName("TaskListTasks")]
+		[AcceptVerbs(HttpVerbs.Post)]
+		public ActionResult Create(Guid taskListId, Task t)
+		{
+			t.TaskListId = taskListId;
+			dao.AddTask(t);
+			return new EmptyResult();
+		}
+		
 
 		[ActionName("Task")]
 		[AcceptVerbsWithOverride(HttpVerbs.Put)]
-		public ActionResult GetTask(Guid taskListId, Guid taskId, Task task)
+		public ActionResult GetTask(Guid taskId, Task task)
 		{
-			task.TaskListId = taskListId;
-			task.Id = taskId;
-			dao.UpdateTask(task);
+			Task taskToUpdate = dao.GetTask(taskId);
+			taskToUpdate.Merge(task);
+			dao.UpdateTask(taskToUpdate);
 			return new EmptyResult();
 		}
 		
