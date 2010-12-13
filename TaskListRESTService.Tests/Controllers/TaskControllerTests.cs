@@ -121,11 +121,12 @@ namespace TaskListRESTService.Tests
 				Due = new DateTime(2010, 1, 1),
 				Name = "Name"
 			};
+			TaskViewModel newTaskViewModel = new TaskViewModel(newTask);
 			var stubDao = MockRepository.GenerateStub<ITaskListDao>();
 			TaskController controller = new TaskController(stubDao);
 			
 			//Act
-			ActionResult ar = controller.Create(taskListGuid, newTask);
+			ActionResult ar = controller.Create(taskListGuid, newTaskViewModel);
 			
 			//Assert
 			stubDao.AssertWasCalled(x => x.AddTask(Arg<Task>.Matches(t => t.Id != default(Guid))));

@@ -21,10 +21,18 @@ namespace TaskListRESTService
 
 			routes.MapRoute(
 			                "Task",
-			                "TaskList/{taskListId}/{taskId}",
+			                "TaskList/{taskListId}/tasks/{taskId}",
 			                new { controller = "Task", action = "Task" },
 							new { taskListId = ".*", taskId = ".*" }
 			);
+			
+			routes.MapRoute(
+			                "TaskListTasks",
+			                "TaskList/{taskListId}/tasks",
+			                new { controller = "Task", action = "TaskListTasks" },
+							new { taskListId = ".*"}
+			);
+							
 
 			routes.MapRoute(
 			                "Tasks",
@@ -50,6 +58,7 @@ namespace TaskListRESTService
 		public static void RegisterBinders()
 		{
 			ModelBinders.Binders[typeof(TaskListViewModel)] = new TaskListBinder();
+			ModelBinders.Binders[typeof(TaskViewModel)] = new TaskBinder();
 			ModelBinders.Binders[typeof(Task)] = new TaskBinder();
 		}
 
