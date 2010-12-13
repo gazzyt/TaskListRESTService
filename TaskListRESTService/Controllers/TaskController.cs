@@ -76,7 +76,7 @@ namespace TaskListRESTService.Controllers
 		public ActionResult DeleteTask(Guid taskId)
 		{
 			dao.DeleteTask(taskId);
-			return new EmptyResult();
+			return new EmptyResultWithStatus(204);
 		}
 			
 	}

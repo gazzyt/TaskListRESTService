@@ -216,6 +216,30 @@ namespace TaskListRESTService.Tests
 		}
 
 		#endregion		
+		
+		#region Delete Tests
+		
+		[Test]
+		public void TestDelete_Success()
+		{
+			//Arrange
+			Guid taskGuid = new Guid("00000000-0000-0000-0000-000000000001");
+			var stubDao = MockRepository.GenerateStub<ITaskListDao>();
+			TaskController controller = new TaskController(stubDao);
+			
+			//Act
+			ActionResult ar = controller.DeleteTask(taskGuid);
+			
+			//Assert
+			stubDao.AssertWasCalled(x => x.DeleteTask(Arg<Guid>.Is.Equal(taskGuid)));
+			
+			Assert.IsInstanceOf<EmptyResultWithStatus>(ar);
+			
+			EmptyResultWithStatus ers = ar as EmptyResultWithStatus;
+			Assert.AreEqual(204, ers.StatusCode);
+		}
+
+		#endregion	
 	}
 }
 
