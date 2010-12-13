@@ -50,15 +50,6 @@ namespace TaskListRESTService.Controllers
 		
 			
 		[ActionName("TaskList")]
-		[AcceptVerbs(HttpVerbs.Post)]
-		public ActionResult Create(Guid taskListId, Task t)
-		{
-			t.TaskListId = taskListId;
-			dao.AddTask(t);
-			return new EmptyResult();
-		}
-		
-		[ActionName("TaskList")]
 		[AcceptVerbsWithOverride(HttpVerbs.Put)]
 		public ActionResult Update(Guid taskListId, TaskList taskList)
 		{
