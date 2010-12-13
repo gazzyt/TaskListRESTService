@@ -106,6 +106,44 @@ namespace TaskListRESTService.Tests
 		}
 		
 		#endregion
+		
+		#region Create Tests
+		
+		[Test]
+		public void TestCreate_Success()
+		{
+			//Arrange
+			Guid taskListGuid = new Guid("00000000-0000-0000-1111-000000000001");
+			Task newTask = new Task()
+			{
+				Complete = false,
+				Description = "Desc",
+				Due = new DateTime(2010, 1, 1),
+				Name = "Name"
+			};
+			var stubDao = MockRepository.GenerateStub<ITaskListDao>();
+			TaskController controller = new TaskController(stubDao);
+			
+			//Act
+			ActionResult ar = controller.Create(taskListGuid, newTask);
+			
+			//Assert
+			stubDao.AssertWasCalled(x => x.AddTask(Arg<Task>.Matches(t => t.Id != default(Guid))));
+			stubDao.AssertWasCalled(x => x.AddTask(Arg<Task>.Matches(t => t.Complete == false)));
+	        stubDao.AssertWasCalled(x => x.AddTask(Arg<Task>.Matches(t => t.Description == "Desc")));
+	        stubDao.AssertWasCalled(x => x.AddTask(Arg<Task>.Matches(t => t.Due == new DateTime(2010, 1, 1))));
+	        stubDao.AssertWasCalled(x => x.AddTask(Arg<Task>.Matches(t => t.Name == "Name")));
+	        stubDao.AssertWasCalled(x => x.AddTask(Arg<Task>.Matches(t => t.TaskListId == taskListGuid)));
+			
+			Assert.IsInstanceOf<EmptyResultWithStatus>(ar);
+			EmptyResultWithStatus ers = ar as EmptyResultWithStatus;
+			Assert.AreEqual(201, ers.StatusCode);
+			Assert.IsNotNull(ers.Location);
+			Assert.Greater(ers.Location.ToString().Length, 0);
+			Assert.AreNotEqual(default(Guid).ToString("D"), ers.Location.ToString());
+		}
+		
+		#endregion
 	}
 }
 

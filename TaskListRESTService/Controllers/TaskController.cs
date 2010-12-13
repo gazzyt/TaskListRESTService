@@ -48,9 +48,10 @@ namespace TaskListRESTService.Controllers
 		[AcceptVerbs(HttpVerbs.Post)]
 		public ActionResult Create(Guid taskListId, Task t)
 		{
+			t.Id = Guid.NewGuid();
 			t.TaskListId = taskListId;
 			dao.AddTask(t);
-			return new EmptyResult();
+			return new EmptyResultWithStatus(201, new Uri(t.Id.ToString("D"), UriKind.Relative));
 		}
 		
 
