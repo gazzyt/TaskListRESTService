@@ -144,6 +144,78 @@ namespace TaskListRESTService.Tests
 		}
 		
 		#endregion
+		
+		#region Update Tests
+		
+		[Test]
+		public void TestUpdate_Success()
+		{
+			//Arrange
+			Guid taskListGuid = new Guid("00000000-0000-0000-1111-000000000001");
+			Guid taskGuid = new Guid("00000000-0000-0000-0000-000000000001");
+			Task originalTask = new Task()
+			{
+				Id = taskGuid,
+				Complete = false,
+				Description = "OrigDesc",
+				Due = new DateTime(2010, 1, 1),
+				Name = "OrigName",
+				TaskListId = taskListGuid
+			};
+			Task newTask = new Task()
+			{
+				Complete = false,
+				Description = "NewDesc",
+				Due = new DateTime(2011, 1, 1),
+				Name = "NewName"
+			};
+			var stubDao = MockRepository.GenerateStub<ITaskListDao>();
+			stubDao.Stub(x => x.GetTask(Arg<Guid>.Is.Equal(taskGuid))).Return(originalTask);
+			TaskController controller = new TaskController(stubDao);
+			
+			//Act
+			ActionResult ar = controller.UpdateTask(taskGuid, newTask);
+			
+			//Assert
+			stubDao.AssertWasCalled(x => x.UpdateTask(Arg<Task>.Matches(t => t.Id == taskGuid)));
+			stubDao.AssertWasCalled(x => x.UpdateTask(Arg<Task>.Matches(t => t.Complete == false)));
+	        stubDao.AssertWasCalled(x => x.UpdateTask(Arg<Task>.Matches(t => t.Description == "NewDesc")));
+	        stubDao.AssertWasCalled(x => x.UpdateTask(Arg<Task>.Matches(t => t.Due == new DateTime(2011, 1, 1))));
+	        stubDao.AssertWasCalled(x => x.UpdateTask(Arg<Task>.Matches(t => t.Name == "NewName")));
+	        stubDao.AssertWasCalled(x => x.UpdateTask(Arg<Task>.Matches(t => t.TaskListId == taskListGuid)));
+			
+			Assert.IsInstanceOf<EmptyResult>(ar);
+		}
+
+		[Test]
+		public void TestUpdate_NotFound()
+		{
+			//Arrange
+			Guid taskGuid = new Guid("00000000-0000-0000-0000-000000000001");
+
+			Task newTask = new Task()
+			{
+				Complete = false,
+				Description = "NewDesc",
+				Due = new DateTime(2011, 1, 1),
+				Name = "NewName"
+			};
+			var stubDao = MockRepository.GenerateStub<ITaskListDao>();
+			stubDao.Stub(x => x.GetTask(Arg<Guid>.Is.Anything)).Return(null);
+			TaskController controller = new TaskController(stubDao);
+			
+			//Act
+			ActionResult ar = controller.UpdateTask(taskGuid, newTask);
+			
+			//Assert
+			stubDao.AssertWasNotCalled(x => x.UpdateTask(Arg<Task>.Is.Anything));
+			
+			Assert.IsInstanceOf<EmptyResultWithStatus>(ar);
+			EmptyResultWithStatus ers = ar as EmptyResultWithStatus;
+			Assert.AreEqual(404, ers.StatusCode);
+		}
+
+		#endregion		
 	}
 }
 

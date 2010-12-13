@@ -57,9 +57,15 @@ namespace TaskListRESTService.Controllers
 
 		[ActionName("Task")]
 		[AcceptVerbsWithOverride(HttpVerbs.Put)]
-		public ActionResult GetTask(Guid taskId, Task task)
+		public ActionResult UpdateTask(Guid taskId, Task task)
 		{
 			Task taskToUpdate = dao.GetTask(taskId);
+			
+			if (taskToUpdate == null)
+			{
+				return new EmptyResultWithStatus(404);
+			}
+			
 			taskToUpdate.Merge(task);
 			dao.UpdateTask(taskToUpdate);
 			return new EmptyResult();
